@@ -17,24 +17,27 @@ Proviamo sempre prima con dei console.log() per capire se stiamo ricevendo i dat
 Le validazioni e i controlli possiamo farli anche in un secondo momento.
 */
 
-// selezionare gli elementi del DOM necessari
-
+// seleziono gli elementi del DOM necessari
 const loser = document.querySelector("#lose");
 const titlePoints = document.querySelector("#h2");
 
-//selezionare il bottone per creare la griglia 
+//seleziono il bottone per creare la griglia 
 const eleButton = document.querySelector("#btn");
 
 
 
 eleButton.addEventListener("click", function () {
+    //setto il punteggio a 0
     let score = 0;
     //Array per le bombe
     const num = [];
     const eleGrid = document.querySelector('.grid');
+    //seleziono l'elemento select
     const eleDifficulty = document.getElementById("difficulty");
+    // setto il value in base alla scelta dell'utente
     let value = eleDifficulty.options[eleDifficulty.selectedIndex].value;
-    console.log(value);
+
+    //reset per evitare di aggiornare la pagina a fine partita
     document.querySelector("#score").innerHTML = "";
     eleGrid.classList.remove("not_clickable");
     loser.classList.add("hidden");
@@ -43,9 +46,11 @@ eleButton.addEventListener("click", function () {
     
     // generare la griglia in base alla difficoltà scelta
     if (value == "100") {
+        //per ogni scelta dell'utente genero un diverso array di bombe
         getRandom(1, 100, num);
         eleGrid.classList.remove("grid_easy", "grid_medium", "grid_hard");
         eleGrid.classList.add("grid_easy");
+        //per ogni scelta dell'utente creo una griglia differente
         createGrid(100, eleGrid);
     } else if (value == "81") {
         getRandom(1, 81, num);
@@ -59,23 +64,25 @@ eleButton.addEventListener("click", function () {
         createGrid(49, eleGrid);
     }
     
-    // debugger
     const listCells = document.querySelectorAll('.cell');
-    // applicare gli event listeners a tutte le celle della griglia
+    // applico gli event listeners a tutte le celle della griglia
     for (let i = 0; i < listCells.length; i++) {
         const cell = listCells[i];
         cell.addEventListener('click', function() {
+            // determino cosa succede quando viene trovata una bomba e quando non
             if (num.includes(i + 1)) {
                 console.log("hai cliccato la cella " + this.innerHTML);
                 this.classList.toggle("bomb");
+                //tolgo la possibilità di continuare a selezionare caselle nella griglia
                 eleGrid.classList.add("not_clickable");
+                //faccio apparire le scritte di fine partita
                 loser.classList.remove("hidden");
                 titlePoints.classList.remove("hidden");
                 document.querySelector("#score").innerHTML = score;
-                // console.log("hai perso");
             } else {
                 console.log("hai cliccato la cella " + this.innerHTML);
                 this.classList.toggle('clicked');
+                // visto che la bomba non è stata trovata il punteggio aumenta
                 score++;
             }
         })
