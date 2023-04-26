@@ -65,7 +65,11 @@ select:hover {
 }
 
 .clicked {
-	background-color: brown;
+	background-color: lightblue;
+}
+
+.bomb {
+    background-color: brown;
 }
 
 footer {
