@@ -41,6 +41,7 @@ eleButton.addEventListener("click", function () {
     document.querySelector("#score").innerHTML = "";
     eleGrid.classList.remove("not_clickable");
     loser.classList.add("hidden");
+    titlePoints.classList.add("hidden");
 
     
     
@@ -77,7 +78,7 @@ eleButton.addEventListener("click", function () {
                 eleGrid.classList.add("not_clickable");
                 //faccio apparire le scritte di fine partita
                 loser.classList.remove("hidden");
-                titlePoints.classList.remove("hidden");
+                titlePoints.classList.toggle("hidden");
                 document.querySelector("#score").innerHTML = score;
             } else {
                 console.log("hai cliccato la cella " + this.innerHTML);
