@@ -14,5 +14,4 @@ function getRandom (min, max, numbers) {
     numbers.push(randomNumber);
   }
 }
-console.log(numbers);
 }
