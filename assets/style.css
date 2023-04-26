@@ -66,10 +66,12 @@ select:hover {
 
 .clicked {
 	background-color: lightblue;
+    pointer-events: none;
 }
 
 .bomb {
     background-color: brown;
+    pointer-events: none;
 }
 
 footer {
@@ -79,4 +81,12 @@ footer {
 
 footer a {
     margin-left: .5rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.not_clickable {
+    pointer-events: none;
 }

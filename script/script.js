@@ -19,38 +19,44 @@ Le validazioni e i controlli possiamo farli anche in un secondo momento.
 
 // selezionare gli elementi del DOM necessari
 
+const loser = document.querySelector("#lose");
+const titlePoints = document.querySelector("#h2");
+
 //selezionare il bottone per creare la griglia 
 const eleButton = document.querySelector("#btn");
 
-//Array per le bombe
-const num = [];
+
 
 eleButton.addEventListener("click", function () {
+    let score = 0;
+    //Array per le bombe
+    const num = [];
     const eleGrid = document.querySelector('.grid');
     const eleDifficulty = document.getElementById("difficulty");
     let value = eleDifficulty.options[eleDifficulty.selectedIndex].value;
     console.log(value);
+    document.querySelector("#score").innerHTML = "";
+    eleGrid.classList.remove("not_clickable");
+    loser.classList.add("hidden");
+
     
     
     // generare la griglia in base alla difficoltà scelta
     if (value == "100") {
-        const num = [];
+        getRandom(1, 100, num);
         eleGrid.classList.remove("grid_easy", "grid_medium", "grid_hard");
         eleGrid.classList.add("grid_easy");
         createGrid(100, eleGrid);
-        getRandom(1, 100, num);
     } else if (value == "81") {
-        const num = [];
+        getRandom(1, 81, num);
         eleGrid.classList.remove("grid_easy", "grid_medium", "grid_hard");
         eleGrid.classList.add( "grid_medium");
         createGrid(81, eleGrid);
-        getRandom(1, 81, num);
     } else if (value == "49") {
-        const num = [];
+        getRandom(1, 49, num);
         eleGrid.classList.remove("grid_easy", "grid_medium", "grid_hard");
         eleGrid.classList.add("grid_hard");
         createGrid(49, eleGrid);
-        getRandom(1, 49, num);
     }
     
     // debugger
@@ -62,13 +68,19 @@ eleButton.addEventListener("click", function () {
             if (num.includes(i + 1)) {
                 console.log("hai cliccato la cella " + this.innerHTML);
                 this.classList.toggle("bomb");
-                console.log("hai perso");
+                eleGrid.classList.add("not_clickable");
+                loser.classList.remove("hidden");
+                titlePoints.classList.remove("hidden");
+                document.querySelector("#score").innerHTML = score;
+                // console.log("hai perso");
             } else {
                 console.log("hai cliccato la cella " + this.innerHTML);
                 this.classList.toggle('clicked');
+                score++;
             }
         })
     }
     
 });
+
 
