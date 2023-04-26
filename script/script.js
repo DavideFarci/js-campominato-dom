@@ -48,18 +48,18 @@ eleButton.addEventListener("click", function () {
     // generare la griglia in base alla difficoltà scelta
     if (value == "100") {
         //per ogni scelta dell'utente genero un diverso array di bombe
-        getRandom(1, 100, num);
+        getRandom(1, 100, num, 16);
         eleGrid.classList.remove("grid_easy", "grid_medium", "grid_hard");
         eleGrid.classList.add("grid_easy");
         //per ogni scelta dell'utente creo una griglia differente
         createGrid(100, eleGrid);
     } else if (value == "81") {
-        getRandom(1, 81, num);
+        getRandom(1, 81, num, 16);
         eleGrid.classList.remove("grid_easy", "grid_medium", "grid_hard");
         eleGrid.classList.add( "grid_medium");
         createGrid(81, eleGrid);
     } else if (value == "49") {
-        getRandom(1, 49, num);
+        getRandom(1, 49, num, 16);
         eleGrid.classList.remove("grid_easy", "grid_medium", "grid_hard");
         eleGrid.classList.add("grid_hard");
         createGrid(49, eleGrid);

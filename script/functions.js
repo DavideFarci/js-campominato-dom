@@ -7,8 +7,8 @@ function createGrid(numCells, eleContainer) {
 }
 
 
-function getRandom (min, max, numbers) {
-	while (numbers.length < 16) {
+function getRandom (min, max, numbers, repeat) {
+	while (numbers.length < repeat) {
   	let randomNumber = Math.floor(Math.random() * (max - min + 1) ) + min;
   	if (!numbers.includes(randomNumber)) {
     numbers.push(randomNumber);
