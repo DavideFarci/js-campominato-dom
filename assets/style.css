@@ -1,0 +1,78 @@
+main {
+    height: 100vh;
+    background-color: black;
+}
+
+.navbar {
+    height: 4rem;
+    background-color: lightgreen;
+}
+
+.navbar img {
+    height: 3rem;
+}
+
+.navbar a {
+    vertical-align: -3px;
+}
+
+select  {
+    background-color: lightgreen !important;
+    margin-right: .5rem;
+    border-color: #198754 !important;
+}
+
+select:hover {
+    cursor: pointer;
+    background-color: #198754 !important;
+}
+
+.container {
+    height: calc(100% - 7rem);
+}
+
+.grid {
+    box-sizing: content-box;
+    background-color: rgb(71, 170, 71);
+}
+
+.grid_easy {
+    width: 600px;
+    border: 3px solid green;
+}
+
+.grid_medium {
+    width: 540px;
+    border: 3px solid green;
+}
+
+.grid_hard {
+    width: 420px;
+    border: 3px solid green;
+}
+
+
+.cell {
+    font-size: .8em;
+    font-weight: bold;
+	width: 60px;
+	height: 60px;
+	border: 1px solid black;
+	cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clicked {
+	background-color: brown;
+}
+
+footer {
+    background-color: green;
+    height: 3rem;
+}
+
+footer a {
+    margin-left: .5rem;
+}
