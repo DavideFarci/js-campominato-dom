@@ -74,6 +74,14 @@ eleButton.addEventListener("click", function () {
             if (num.includes(i + 1)) {
                 console.log("hai cliccato la cella " + this.innerHTML);
                 this.classList.toggle("bomb");
+                setTimeout(() => {
+                    for (let i = 0; i < num.length; i++) {
+                        const cell = listCells[num[i] - 1];
+                        if (!cell.classList.contains("bomb")) {
+                            cell.classList.add("bomb");
+                        }
+                    }
+                }, 500);
                 //tolgo la possibilità di continuare a selezionare caselle nella griglia
                 eleGrid.classList.add("not_clickable");
                 //faccio apparire le scritte di fine partita
