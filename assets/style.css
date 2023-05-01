@@ -70,6 +70,10 @@ select:hover {
 }
 
 .bomb {
+    background-color: rgb(122, 30, 30);
+}
+
+.bomb_clicked {
     background-color: brown;
     pointer-events: none;
 }

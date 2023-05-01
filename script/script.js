@@ -73,7 +73,7 @@ eleButton.addEventListener("click", function () {
             // determino cosa succede quando viene trovata una bomba e quando non
             if (num.includes(i + 1)) {
                 console.log("hai cliccato la cella " + this.innerHTML);
-                this.classList.toggle("bomb");
+                this.classList.toggle("bomb_clicked");
                 //coloro di rosso tutte le celle che contengono una bomba, dopo mezzo secondo 
                 setTimeout(() => {
                     for (let i = 0; i < num.length; i++) {
