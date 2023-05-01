@@ -7,11 +7,11 @@ function createGrid(numCells, eleContainer) {
 }
 
 
-function getRandom (min, max, numbers, repeat) {
-	while (numbers.length < repeat) {
+function getRandom (min, max, array, repeat) {
+	while (array.length < repeat) {
   	let randomNumber = Math.floor(Math.random() * (max - min + 1) ) + min;
-  	if (!numbers.includes(randomNumber)) {
-    numbers.push(randomNumber);
+  	if (!array.includes(randomNumber)) {
+    array.push(randomNumber);
   }
 }
 }
