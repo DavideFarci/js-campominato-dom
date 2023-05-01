@@ -74,6 +74,7 @@ eleButton.addEventListener("click", function () {
             if (num.includes(i + 1)) {
                 console.log("hai cliccato la cella " + this.innerHTML);
                 this.classList.toggle("bomb");
+                //coloro di rosso tutte le celle che contengono una bomba, dopo mezzo secondo 
                 setTimeout(() => {
                     for (let i = 0; i < num.length; i++) {
                         const cell = listCells[num[i] - 1];
